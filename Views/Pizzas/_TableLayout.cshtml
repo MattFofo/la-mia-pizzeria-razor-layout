@@ -1,0 +1,58 @@
+﻿@*Init pizze*@
+@{
+    Pizza margherita = new Pizza("Margherita", "Classica, pomodoro e mozzarella.", "https://localhost:7009/images/margherita.jpg", 4.50m);
+    Pizza capricciosa = new Pizza("Capricciosa", "Fa i capricci, mangiare con gentilezza.", "https://localhost:7009/images/img1.jpeg", 7.50m);
+    Pizza estate = new Pizza("Estate", "Servita solo se ci sono più di 35 gradi.", "https://localhost:7009/images/img2.jpg", 6.50m);
+    Pizza autunno = new Pizza("Autunno", "Non ci sono più le mezze stagioni. Probabilmente non disponibile.", "https://localhost:7009/images/img3.jpg", 5.50m);
+    Pizza inverno = new Pizza("Inverno", "Da brividi.", "https://localhost:7009/images/img4.jpg", 8.50m);
+    Pizza primavera = new Pizza("Primavera", "Non ci sono più le mezze stagioni. Probabilmente non disponibile.", "https://localhost:7009/images/img5.jpg", 4.50m);
+    Pizza colombo = new Pizza("Colombo", "Ti porta alla scoperta di un nuovo mondo.", "https://localhost:7009/images/img6.jpg", 10.50m);
+    Pizza contadina = new Pizza("Contadina", "Pure bona.", "https://localhost:7009/images/img7.jpg", 3.50m);
+    Pizza mapazzone = new Pizza("Mapazzone", "Se non sai cosa scegliere, scegli tutto.", "https://localhost:7009/images/img2.jpg", 5.50m);
+    Pizza idk = new Pizza("Idk", "Dipende dall'umore del pizzaiolo.", "https://localhost:7009/images/img3.jpg", 4.20m);
+    Pizza whatever = new Pizza("Whatever", "Fattela tu.", "https://localhost:7009/images/margherita.jpg", 7.80m);
+
+    List<Pizza> pizzas = new List<Pizza>();
+    pizzas.Add(margherita);
+    pizzas.Add(capricciosa);
+    pizzas.Add(estate);
+    pizzas.Add(autunno);
+    pizzas.Add(inverno);
+    pizzas.Add(primavera);
+    pizzas.Add(colombo);
+    pizzas.Add(contadina);
+    pizzas.Add(mapazzone);
+    pizzas.Add(idk);
+    pizzas.Add(whatever);
+
+}
+
+
+
+
+<table>
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Immagine</td>
+            <td>Descrizione</td>
+            <td>Prezzo</td>
+        </tr>
+    </thead>
+    <tbody>
+
+
+    @{
+        foreach (var pizza in pizzas)
+        {
+            <tr>
+                <td><a href="~/Pizzas/Details/@pizza.Id">@pizza.Name</a></td>
+                <td class="w-25"><img class="img-thumbnail w-50 h-50" src="@pizza.Image" /></td>
+                <td>@pizza.Description</td>
+                <td>@pizza.Price &euro;</td>
+            </tr>
+        }
+    }
+
+    </tbody>
+</table>
