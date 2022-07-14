@@ -26,9 +26,15 @@ body {
     left: 20px;
 }
 
+.h-main-body {
+    height: 500px;
+}
+
 
 /* main layout */
 
 .bg-main {
     background-image: url(https://localhost:7009/images/pizza-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

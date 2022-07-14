@@ -12,11 +12,29 @@
 
     @Html.Partial("_MainHeader")
 
-    <div class="container bg-main">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+
+    @{
+        string bg = "";
+
+        if (ViewData["Title"] == "Home")
+        {
+            bg = "bg-main";
+            <div class="container-fluid h-main-body @bg">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        } else
+        {
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        }
+    }
+
+
 
     @Html.Partial("_MainFooter")
 

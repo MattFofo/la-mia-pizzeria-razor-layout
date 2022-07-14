@@ -1,9 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    @*<img class="img-fluid" src="https://localhost:7009/images/pizza-background.jpg" />*@
-    <h1 class="display-4 text-white">Welcome to MyPizzeria</h1>
-    <a href="~/Pizzas/" class="text-white">Dai un'occhiata alle nostre pizze</a>.
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <h1 class="display-4 text-white">Welcome to MyPizzeria</h1>
+        </div>
+    </div>
+    <a asp-controller="Pizzas" asp-action="Index" class="btn btn-light">Dai un'occhiata alle nostre pizze</a>.
 </div>
