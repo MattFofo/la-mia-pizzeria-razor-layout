@@ -9,7 +9,13 @@
 <h1>Ecco le nostre Pizze</h1>
 
 
-@if (true)
+@{
+    bool isTableView = true;
+}
+
+<button onclick="@{ isTableView = !isTableView; }" class="btn btn-primary">Tabella</button>
+
+@if (isTableView)
 {
     @Html.Partial("_TableLayout");
 
