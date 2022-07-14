@@ -1,0 +1,102 @@
+﻿@*
+    Index Esercizi Razor
+
+1. Dichiarare una variabile valorizzandola con il nostro nome.
+    Dichiarare un'altra variabile valorizzandola con il nostro cognome.
+    Stampare il nostro nome e cognome all'interno di un tag h2.
+2. Creare una funzione che stampa la somma dei numeri che vanno da 1 a n (con n passato come parametro - n incluso)
+    Stampare dentro uno span il risultato.
+3. Contare quante volte la lettera a è presente nalla frase "nel mezzo del cammin di nostra vita" e stampare questo valore in pagina
+4. Creare una List<int> di 20 numeri interi (generati random da 1 a 90, 1 e 90 inclusi) e mostrare in pagina solo 
+    i numeri compresi tra 20 e 70
+5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi
+6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina
+a. la data di 7 giorni fa
+b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
+c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere 
+    il nome del giorno (Lunedì, Martedì, ...)
+*@
+
+@*--1----------------------------------------------------------------------------------*@
+
+@{
+    string name = "Matteo";
+    string surname = "Segattini";
+}
+
+<h2>@name @surname</h2>
+
+@*--2----------------------------------------------------------------------------------*@
+
+@{
+    int PrintGauss(int n)
+    {
+        int result = (n * (n + 1)) / 2;
+
+        return result;
+    }
+}
+
+<h2>@PrintGauss(10)</h2>
+
+@*--3----------------------------------------------------------------------------------*@
+
+@{
+    string sentence = "nel mezzo del cammin di nostra vita";
+
+    sentence.ToArray();
+
+    int count = 0;
+
+    foreach (var letter in sentence)
+    {
+        if (letter == 'a')
+        {
+            count++;
+        }
+    }
+}
+
+<span>@count</span>
+
+@*--4----------------------------------------------------------------------------------*@
+
+@{
+    List<int> nums = new List<int>();
+
+    for (int i = 0; i < 20; i++)
+    {
+        nums.Add(new Random().Next(1, 91));
+    }
+
+    foreach (var num in nums)
+    {
+        if (num >= 20 && num <=70)
+        {
+            <span>@num</span>
+        }
+    }
+}
+
+@*--5----------------------------------------------------------------------------------*@
+
+@{
+    DateTime date1 = DateTime.Now;
+
+    string parsedDate1 = date1.ToString("yyyy/MM/dd h:mm:ss");
+}
+
+<div>@parsedDate1</div>
+
+@*--6----------------------------------------------------------------------------------*@
+
+
+@{
+    DateTime date2 = DateTime.Now;
+
+    string lastWeek = date2.AddDays(-7).ToString("dd/MM/yyyy");
+    <div>@lastWeek</div>
+    <div>@date2.ToString("dddd")</div>
+    <div>@date2.AddYears(-1).ToString("dddd")</div>
+
+}
