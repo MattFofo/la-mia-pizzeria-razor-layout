@@ -17,10 +17,18 @@ body {
   margin-bottom: 60px;
 }
 
+/* utilities */
 .top-20 {
     top: 20px;
 }
 
 .left-20 {
     left: 20px;
+}
+
+
+/* main layout */
+
+.bg-main {
+    background-image: url(https://localhost:7009/images/pizza-background.jpg);
 }
